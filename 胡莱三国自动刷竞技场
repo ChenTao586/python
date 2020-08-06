@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Aug  5 21:45:38 2020
+
+@author: ChenTao
+"""
+import  os
+from pymouse import PyMouse
+import  time
+m = PyMouse()
+flag=1
+def autoclick(x,y):
+     m.click(x, y) 
+     time.sleep(4)
+try:
+    while True:
+            time.sleep(3)
+            if flag==1:
+                autoclick(968,221)     #进入比武场
+                autoclick(923,339)     # 点击比武竞技场
+                flag=0
+            else:
+                autoclick(934,866)      #点击战斗
+                autoclick(1107,728)     #点击战斗2
+                autoclick(936,553)      # 点击开战
+                time.sleep(3)
+                autoclick(932,530)      #领取奖励
+                autoclick(1107,728)      #确定
+                autoclick(943,784)      #确定
+            os.system('cls')   #清屏
+except KeyboardInterrupt:
+    print('\n结束,按任意键退出....')   
